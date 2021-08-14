@@ -1,0 +1,7 @@
+stm32l0xx_hal_msp.c:63:6:HAL_TIM_PWM_MspInit	40	static
+stm32l0xx_hal_msp.c:90:6:HAL_TIM_PWM_MspDeInit	16	static
+stm32l0xx_hal_msp.c:108:6:HAL_TIM_OC_MspInit	40	static
+stm32l0xx_hal_msp.c:141:6:HAL_TIM_OC_MspDeInit	16	static
+stm32l0xx_hal_msp.c:165:6:HAL_TIM_OC_DelayElapsedCallback	16	static
+stm32l0xx_hal_msp.c:179:6:HAL_GPIO_EXTI_Callback	16	static
+stm32l0xx_hal_msp.c:198:6:HAL_MspInit	8	static

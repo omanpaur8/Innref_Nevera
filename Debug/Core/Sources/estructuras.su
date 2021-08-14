@@ -1,0 +1,4 @@
+estructuras.c:48:6:Iniciar_EstrucCaptura	24	static
+estructuras.c:83:6:Iniciar_EstrucComCEIT	24	static
+estructuras.c:122:6:Iniciar_EstrucDistancia	32	static
+estructuras.c:159:6:Iniciar_EstrucMotor	32	static

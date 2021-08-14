@@ -1,0 +1,4 @@
+captura.c:52:6:BloqueCaptura	40	static
+captura.c:200:6:ConfigParrillas	48	static
+captura.c:254:6:Ordenar	32	static
+captura.c:288:9:ConvertirDistancia	56	static
