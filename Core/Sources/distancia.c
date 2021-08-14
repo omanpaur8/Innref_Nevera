@@ -51,7 +51,7 @@ Notas y Cambios:
 uint8_t BloqueDistancia(stDistancia *pstdistancia)
 {
 	uint8_t sensorOK, configOK, col;
-	uint16_t d1,d2,d3,d;
+	uint16_t d1,d2,d3,d4,d5;
 	int status;
 	
 	//Verificar si hay solicitud de lectura
@@ -73,62 +73,37 @@ uint8_t BloqueDistancia(stDistancia *pstdistancia)
 			status= VL53L1_GetRangingMeasurementData(&pstdistancia->VL53L1_DEV[pstdistancia->contParrilla], &pstdistancia->RangingData);
 			status = VL53L1_ClearInterruptAndStartMeasurement( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
 			d1 = pstdistancia->RangingData.RangeMilliMeter;
-//			d2=d1;
-//			d3=d1;
+
 			status=VL53L1_WaitMeasurementDataReady( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
 			status= VL53L1_GetRangingMeasurementData(&pstdistancia->VL53L1_DEV[pstdistancia->contParrilla], &pstdistancia->RangingData);
 			status = VL53L1_ClearInterruptAndStartMeasurement( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
 			d2 = pstdistancia->RangingData.RangeMilliMeter;
+
 			status=VL53L1_WaitMeasurementDataReady( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
 			status= VL53L1_GetRangingMeasurementData(&pstdistancia->VL53L1_DEV[pstdistancia->contParrilla], &pstdistancia->RangingData);
 			status = VL53L1_ClearInterruptAndStartMeasurement( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
 			d3 = pstdistancia->RangingData.RangeMilliMeter;
 
-			/*Mediana*/
-			if(d1<d2 && d2<d3){
-				d=d2;
-			}else{
-				if(d1<d3 && d3<d2){
-					d=d3;
-				}else{
-					if(d2<d1 && d1<d3){
-						d=d1;
-					}else{
-						if(d2<d3 && d3<d1){
-							d=d3;
-						}else{
-							if(d3<d2 && d2<d1){
-								d=d2;
-							}else{
-								d=d1;
-							}
-						}
-					}
+			status=VL53L1_WaitMeasurementDataReady( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
+			status= VL53L1_GetRangingMeasurementData(&pstdistancia->VL53L1_DEV[pstdistancia->contParrilla], &pstdistancia->RangingData);
+			status = VL53L1_ClearInterruptAndStartMeasurement( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
+			d4 = pstdistancia->RangingData.RangeMilliMeter;
 
-				}
-			}
-				/*Mínimo*/
-//				if(d1<d2 && d1<d3)
-//					d=d1;
-//				else if(d2<d1 && d2<d3)
-//					d=d2;
-//				else
-//					d=d3;
+			status=VL53L1_WaitMeasurementDataReady( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
+			status= VL53L1_GetRangingMeasurementData(&pstdistancia->VL53L1_DEV[pstdistancia->contParrilla], &pstdistancia->RangingData);
+			status = VL53L1_ClearInterruptAndStartMeasurement( &pstdistancia->VL53L1_DEV[pstdistancia->contParrilla] );
+			d5 = pstdistancia->RangingData.RangeMilliMeter;
 
-				/*Máximo*/
-//				if(d1>d2 && d1>d3)
-//					d=d1;
-//				else if(d2>d1 && d2>d3)
-//					d=d2;
-//				else
-//					d=d3;
 
-				/*Promedio*/
-//				d=(d1+d2+d3)/3;
 			
 				if(status == VL53L1_ERROR_NONE)
 				{
-					pstdistancia->datosDistancia[pstdistancia->contParrilla][col] = d;
+					pstdistancia->datosDistancia[pstdistancia->contParrilla][col] = d1;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][0] = d1;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][1] = d2;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][2] = d3;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][3] = d4;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][4] = d5;
 
 					//Reiniciar bandera de solicitud de lectura
 					pstdistancia->bandDistancia = false;

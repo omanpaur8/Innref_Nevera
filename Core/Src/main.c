@@ -303,7 +303,7 @@ void SystemClock_Config(void)
 
 void BloqueMotor(void) {
 	uint8_t unidad, decena, centena, mil;
-	uint8_t i,j;
+	uint8_t i,j,k,aux;
 
 	/* Bloque motor */
 	if(stmotor.bandMotor){
@@ -327,39 +327,89 @@ void BloqueMotor(void) {
 			BSP_MotorControl_SetStopMode(MOTOR_ID, HIZ_MODE);
 			stmotor.posMotor = stmotor.posInicial;
 			stmotor.bandMotor = false;
-	//				for(i=1; i<6; i++)
-	//				{
-	//					HAL_UART_Transmit(&huart5, (uint8_t*)"S", strlen("S"), 20);
-	//					HAL_UART_Transmit(&huart5, &i, sizeof(centena), 50);
-	//					HAL_UART_Transmit(&huart5, (uint8_t*)"X", strlen("S"), 20);
-	//					HAL_UART_Transmit(&huart5, (uint8_t*)";", strlen(";"), 20);
-	//					for(j=0; j<stdistancia.cantFilas[i-1]; j++)
-	//					{
-	//						  Convertir4Cif(stdistancia.datosDistancia[i-1][j], &mil, &centena, &decena, &unidad);
-	//						  HAL_UART_Transmit(&huart5, &mil, sizeof(centena), 50);
-	//						  HAL_UART_Transmit(&huart5, &centena, sizeof(centena), 50);
-	//						  HAL_UART_Transmit(&huart5, &decena, sizeof(decena), 50);
-	//						  HAL_UART_Transmit(&huart5, &unidad, sizeof(unidad), 50);
-	//						  HAL_UART_Transmit(&huart5, (uint8_t*)";", strlen(";"), 20);
-	//					}
-	//					HAL_UART_Transmit(&huart5, (uint8_t*)"\n", strlen("\n"), 20);
-	//
-	//				}
-			for(i=1; i<6; i++){
-				HAL_UART_Transmit(&huart2, (uint8_t*)"S", strlen("S"), 20);
-				HAL_UART_Transmit(&huart2, &i, sizeof(i), 50);
-				HAL_UART_Transmit(&huart2, (uint8_t*)"X", strlen("S"), 20);
-				HAL_UART_Transmit(&huart2, (uint8_t*)";", strlen(";"), 20);
-				for(j=0; j<stdistancia.cantFilas[i-1]; j++){
-					  Convertir4Cif(stdistancia.datosDistancia[i-1][j], &mil, &centena, &decena, &unidad);
-					  HAL_UART_Transmit(&huart2, &mil, sizeof(centena), 50);
-					  HAL_UART_Transmit(&huart2, &centena, sizeof(centena), 50);
-					  HAL_UART_Transmit(&huart2, &decena, sizeof(decena), 50);
-					  HAL_UART_Transmit(&huart2, &unidad, sizeof(unidad), 50);
-					  HAL_UART_Transmit(&huart2, (uint8_t*)";", strlen(";"), 20);
+
+//			HAL_UART_Transmit(&huart5, (uint8_t*)"\n", strlen("\n"), 20);
+//			for(i=1; i<6; i++)
+//			{
+//				aux = i+48;
+//				HAL_UART_Transmit(&huart5, (uint8_t*)"S", strlen("S"), 20);
+//				HAL_UART_Transmit(&huart5, &aux, sizeof(aux), 20);
+//				HAL_UART_Transmit(&huart5, (uint8_t*)";", strlen(";"), 20);
+//				for(j=0; j<stdistancia.cantFilas[i-1]; j++)
+//				{
+//					  Convertir4Cif(stdistancia.datosDistancia[i-1][j], &mil, &centena, &decena, &unidad);
+//					  HAL_UART_Transmit(&huart5, &mil, sizeof(centena), 50);
+//					  HAL_UART_Transmit(&huart5, &centena, sizeof(centena), 50);
+//					  HAL_UART_Transmit(&huart5, &decena, sizeof(decena), 50);
+//					  HAL_UART_Transmit(&huart5, &unidad, sizeof(unidad), 50);
+//					  HAL_UART_Transmit(&huart5, (uint8_t*)";", strlen(";"), 20);
+//				}
+//				HAL_UART_Transmit(&huart5, (uint8_t*)"\n", strlen("\n"), 20);
+//			}
+
+//			for(i=1; i<6; i++){
+//				HAL_UART_Transmit(&huart2, (uint8_t*)"S", strlen("S"), 20);
+//				HAL_UART_Transmit(&huart2, &i, sizeof(i), 50);
+//				HAL_UART_Transmit(&huart2, (uint8_t*)"X", strlen("S"), 20);
+//				HAL_UART_Transmit(&huart2, (uint8_t*)";", strlen(";"), 20);
+//				for(j=0; j<stdistancia.cantFilas[i-1]; j++){
+//					  Convertir4Cif(stdistancia.datosDistancia[i-1][j], &mil, &centena, &decena, &unidad);
+//					  HAL_UART_Transmit(&huart2, &mil, sizeof(centena), 50);
+//					  HAL_UART_Transmit(&huart2, &centena, sizeof(centena), 50);
+//					  HAL_UART_Transmit(&huart2, &decena, sizeof(decena), 50);
+//					  HAL_UART_Transmit(&huart2, &unidad, sizeof(unidad), 50);
+//					  HAL_UART_Transmit(&huart2, (uint8_t*)";", strlen(";"), 20);
+//				}
+//				HAL_UART_Transmit(&huart2, (uint8_t*)"\n", strlen("\n"), 20);
+//			}
+
+			for(k=0; k<5; k++)
+			{
+				HAL_UART_Transmit(&huart5, (uint8_t*)"\n", strlen("\n"), 20);
+				for(i=1; i<6; i++)
+				{
+					aux = i+48;
+					HAL_UART_Transmit(&huart5, (uint8_t*)"S", strlen("S"), 20);
+					HAL_UART_Transmit(&huart5, &aux, sizeof(aux), 20);
+					HAL_UART_Transmit(&huart5, (uint8_t*)";", strlen(";"), 20);
+					for(j=0; j<stdistancia.cantFilas[i-1]; j++)
+					{
+						  Convertir4Cif(stdistancia.datosDistancia2[i-1][j][k], &mil, &centena, &decena, &unidad);
+						  HAL_UART_Transmit(&huart5, &mil, sizeof(centena), 50);
+						  HAL_UART_Transmit(&huart5, &centena, sizeof(centena), 50);
+						  HAL_UART_Transmit(&huart5, &decena, sizeof(decena), 50);
+						  HAL_UART_Transmit(&huart5, &unidad, sizeof(unidad), 50);
+						  HAL_UART_Transmit(&huart5, (uint8_t*)";", strlen(";"), 20);
+					}
+					HAL_UART_Transmit(&huart5, (uint8_t*)"\n", strlen("\n"), 20);
 				}
-				HAL_UART_Transmit(&huart2, (uint8_t*)"\n", strlen("\n"), 20);
 			}
+
+			for(k=0; k<5; k++)
+			{
+				HAL_UART_Transmit(&huart2, (uint8_t*)"\n", strlen("\n"), 20);
+				for(i=1; i<6; i++)
+				{
+					aux = i+48;
+					HAL_UART_Transmit(&huart2, (uint8_t*)"S", strlen("S"), 20);
+					HAL_UART_Transmit(&huart2, &aux, sizeof(aux), 20);
+					HAL_UART_Transmit(&huart2, (uint8_t*)";", strlen(";"), 20);
+					for(j=0; j<stdistancia.cantFilas[i-1]; j++)
+					{
+						  Convertir4Cif(stdistancia.datosDistancia2[i-1][j][k], &mil, &centena, &decena, &unidad);
+						  HAL_UART_Transmit(&huart2, &mil, sizeof(centena), 50);
+						  HAL_UART_Transmit(&huart2, &centena, sizeof(centena), 50);
+						  HAL_UART_Transmit(&huart2, &decena, sizeof(decena), 50);
+						  HAL_UART_Transmit(&huart2, &unidad, sizeof(unidad), 50);
+						  HAL_UART_Transmit(&huart2, (uint8_t*)";", strlen(";"), 20);
+					}
+					HAL_UART_Transmit(&huart2, (uint8_t*)"\n", strlen("\n"), 20);
+				}
+			}
+
+
+
+
 	//				  calib_motor5();
 			  calib_motor();
 			  calib_motor2();

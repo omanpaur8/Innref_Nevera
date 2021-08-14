@@ -177,7 +177,8 @@ struct stDistancia
 	uint8_t contDistancia;								//Contador de mediciones de distancia hechas
 	uint8_t contParrilla;								//Contador de parrillas
 	uint8_t cantFilas[MAX_PARR];						//Cantidad de filas habilitadas en cada parrilla
-	uint16_t datosDistancia[MAX_PARR][MAX_FILAS];		//Vector para almacenar la distancia sensada en milímetros [mm]
+	uint16_t datosDistancia[MAX_PARR][MAX_FILAS];		//Matriz para almacenar la distancia sensada en milímetros [mm]
+	uint16_t datosDistancia2[MAX_PARR][MAX_FILAS][5];	//Arreglo para almacenar la distancia sensada en milímetros [mm]
 	uint8_t sensor[MAX_PARR*MAX_FILAS];					//Sensor que se debe usar
 	uint8_t posSensor[MAX_PARR];						//Indica la fila de cada sensor
 	uint8_t SenHab;										//Indica la cantidad de sensores habilitados
