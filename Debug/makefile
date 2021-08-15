@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -34,6 +35,17 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
+BUILD_ARTIFACT_NAME := Inventario_V2
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX := 
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
+
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
 Inventario_V2.elf \
@@ -49,25 +61,28 @@ Inventario_V2.bin \
 
 
 # All Target
-all: Inventario_V2.elf secondary-outputs
+all: main-build
+
+# Main-build Target
+main-build: Inventario_V2.elf secondary-outputs
 
 # Tool invocations
-Inventario_V2.elf: $(OBJS) $(USER_OBJS) C:\Users\Omar\STM32CubeIDE\Nevera_2\Inventario_V2\STM32L073RZTX_FLASH.ld
-	arm-none-eabi-gcc -o "Inventario_V2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\Omar\STM32CubeIDE\Nevera_2\Inventario_V2\STM32L073RZTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Inventario_V2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Inventario_V2.elf: $(OBJS) $(USER_OBJS) C:\Users\Omar\STM32CubeIDE\Calibracion\Inventario_V2\STM32L073RZTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Inventario_V2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\Omar\STM32CubeIDE\Calibracion\Inventario_V2\STM32L073RZTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Inventario_V2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Inventario_V2.list: $(EXECUTABLES)
+Inventario_V2.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Inventario_V2.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Inventario_V2.bin: $(EXECUTABLES)
+Inventario_V2.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Inventario_V2.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
@@ -79,7 +94,14 @@ clean:
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
-.PHONY: all clean dependents
+fail-specified-linker-script-missing:
+	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
+	@exit 2
+
+warn-no-linker-script-specified:
+	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
+
+.PHONY: all clean dependents fail-specified-linker-script-missing warn-no-linker-script-specified
 .SECONDARY:
 
 -include ../makefile.targets

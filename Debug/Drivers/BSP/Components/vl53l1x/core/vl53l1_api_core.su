@@ -9,7 +9,7 @@ vl53l1_api_core.c:657:14:VL53L1_set_timeouts_us	56	static
 vl53l1_api_core.c:699:14:VL53L1_get_timeouts_us	48	static
 vl53l1_api_core.c:773:14:VL53L1_set_calibration_repeat_period	24	static
 vl53l1_api_core.c:792:14:VL53L1_get_calibration_repeat_period	24	static
-vl53l1_api_core.c:811:14:VL53L1_set_sequence_config_bit	32	static
+vl53l1_api_core.c:811:14:VL53L1_set_sequence_config_bit	40	static
 vl53l1_api_core.c:850:14:VL53L1_get_sequence_config_bit	32	static
 vl53l1_api_core.c:887:14:VL53L1_set_interrupt_polarity	24	static
 vl53l1_api_core.c:911:14:VL53L1_set_refspadchar_config_struct	24	static

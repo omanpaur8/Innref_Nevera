@@ -1,4 +1,4 @@
-distancia.c:51:9:BloqueDistancia	48	static
-distancia.c:163:5:IniciarSensores	48	static
-distancia.c:211:9:EnableSensors	16	static
-distancia.c:285:6:Convertir4Cif	40	static
+distancia.c:51:9:BloqueDistancia	56	static
+distancia.c:138:5:IniciarSensores	48	static
+distancia.c:186:9:EnableSensors	16	static
+distancia.c:260:6:Convertir4Cif	40	static

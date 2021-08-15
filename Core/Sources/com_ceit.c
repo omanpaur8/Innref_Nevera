@@ -51,7 +51,6 @@ Notas y Cambios:
 ****************************************************************************************/
 void BloqueCOM_CEIT(stComCEIT *pstcomceit)
 {
-	int i;
   
   switch(pstcomceit->SM_State)
   {

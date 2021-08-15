@@ -408,8 +408,6 @@ void BloqueMotor(void) {
 			}
 
 
-
-
 	//				  calib_motor5();
 			  calib_motor();
 			  calib_motor2();

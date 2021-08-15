@@ -99,11 +99,11 @@ uint8_t BloqueDistancia(stDistancia *pstdistancia)
 				if(status == VL53L1_ERROR_NONE)
 				{
 					pstdistancia->datosDistancia[pstdistancia->contParrilla][col] = d1;
-					pstdistancia->datosDistancia2[pstdistancia->contParrilla][0] = d1;
-					pstdistancia->datosDistancia2[pstdistancia->contParrilla][1] = d2;
-					pstdistancia->datosDistancia2[pstdistancia->contParrilla][2] = d3;
-					pstdistancia->datosDistancia2[pstdistancia->contParrilla][3] = d4;
-					pstdistancia->datosDistancia2[pstdistancia->contParrilla][4] = d5;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][col][0] = d1;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][col][1] = d2;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][col][2] = d3;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][col][3] = d4;
+					pstdistancia->datosDistancia2[pstdistancia->contParrilla][col][4] = d5;
 
 					//Reiniciar bandera de solicitud de lectura
 					pstdistancia->bandDistancia = false;

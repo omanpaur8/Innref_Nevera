@@ -88,7 +88,7 @@ x_nucleo_ihmxx.c:1680:10:BSP_MotorControl_GetRefFreq	24	static
 x_nucleo_ihmxx.c:1700:6:BSP_MotorControl_SetRefDc	16	static
 x_nucleo_ihmxx.c:1717:9:BSP_MotorControl_GetRefDc	32	static
 x_nucleo_ihmxx.c:1739:6:BSP_MotorControl_SetNbDevices	32	static
-x_nucleo_ihmxx.c:1796:6:BSP_MotorControl_SetAnalogValue	40	static
+x_nucleo_ihmxx.c:1796:6:BSP_MotorControl_SetAnalogValue	48	static
 x_nucleo_ihmxx.c:1816:7:BSP_MotorControl_GetAnalogValue	24	static
 x_nucleo_ihmxx.c:1836:6:BSP_MotorControl_SetTorqueBoostEnable	16	static
 x_nucleo_ihmxx.c:1853:6:BSP_MotorControl_GetTorqueBoostEnable	32	static

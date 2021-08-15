@@ -2,7 +2,7 @@ vl53l1_api.c:144:21:VL53L1_nvm_enable	40	static
 vl53l1_api.c:228:21:VL53L1_nvm_read	40	static
 vl53l1_api.c:299:21:VL53L1_nvm_disable	32	static
 vl53l1_api.c:340:21:VL53L1_read_nvm_raw_data	40	static
-vl53l1_api.c:390:21:SingleTargetXTalkCalibration	216	static
+vl53l1_api.c:390:21:SingleTargetXTalkCalibration	224	static
 vl53l1_api.c:541:21:CheckValidRectRoi	24	static
 vl53l1_api.c:559:35:ConvertModeToLLD	24	static
 vl53l1_api.c:585:29:ConvertModeFromLLD	24	static
@@ -33,7 +33,7 @@ vl53l1_api.c:1384:14:VL53L1_GetLimitCheckStatus	40	static
 vl53l1_api.c:1404:21:SetLimitValue	32	static
 vl53l1_api.c:1430:14:VL53L1_SetLimitCheckEnable	32	static
 vl53l1_api.c:1464:14:VL53L1_GetLimitCheckEnable	40	static
-vl53l1_api.c:1486:14:VL53L1_SetLimitCheckValue	40	static
+vl53l1_api.c:1486:14:VL53L1_SetLimitCheckValue	48	static
 vl53l1_api.c:1523:14:VL53L1_GetLimitCheckValue	48	static
 vl53l1_api.c:1570:14:VL53L1_GetLimitCheckCurrent	32	static
 vl53l1_api.c:1597:14:VL53L1_SetUserROI	32	static
@@ -42,7 +42,7 @@ vl53l1_api.c:1644:14:VL53L1_GetNumberOfSequenceSteps	24	static
 vl53l1_api.c:1659:14:VL53L1_GetSequenceStepsInfo	32	static
 vl53l1_api.c:1675:14:VL53L1_SetSequenceStepEnable	32	static
 vl53l1_api.c:1708:14:VL53L1_GetSequenceStepEnable	40	static
-vl53l1_api.c:1732:14:VL53L1_StartMeasurement	40	static
+vl53l1_api.c:1732:14:VL53L1_StartMeasurement	48	static
 vl53l1_api.c:1794:14:VL53L1_StopMeasurement	32	static
 vl53l1_api.c:1810:21:ChangePresetMode	56	static
 vl53l1_api.c:1883:14:VL53L1_ClearInterruptAndStartMeasurement	32	static
@@ -54,7 +54,7 @@ vl53l1_api.c:2029:21:SetSimpleData	64	static
 vl53l1_api.c:2159:14:VL53L1_GetRangingMeasurementData	184	static
 vl53l1_api.c:2205:14:VL53L1_SetTuningParameter	40	static
 vl53l1_api.c:2226:14:VL53L1_GetTuningParameter	40	static
-vl53l1_api.c:2249:14:VL53L1_PerformRefSpadManagement	72	static
+vl53l1_api.c:2249:14:VL53L1_PerformRefSpadManagement	80	static
 vl53l1_api.c:2332:14:VL53L1_SetXTalkCompensationEnable	32	static
 vl53l1_api.c:2349:14:VL53L1_GetXTalkCompensationEnable	32	static
 vl53l1_api.c:2364:14:VL53L1_PerformSingleTargetXTalkCalibration	32	static
@@ -63,6 +63,6 @@ vl53l1_api.c:2411:14:VL53L1_PerformOffsetCalibration	32	static
 vl53l1_api.c:2457:14:VL53L1_PerformOffsetSimpleCalibration	96	static
 vl53l1_api.c:2554:14:VL53L1_SetCalibrationData	136	static
 vl53l1_api.c:2635:14:VL53L1_GetCalibrationData	144	static
-vl53l1_api.c:2719:14:VL53L1_GetOpticalCenter	136	static
+vl53l1_api.c:2719:14:VL53L1_GetOpticalCenter	144	static
 vl53l1_api.c:2747:14:VL53L1_SetThresholdConfig	72	static
 vl53l1_api.c:2850:14:VL53L1_GetThresholdConfig	40	static
